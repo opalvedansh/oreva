@@ -8,17 +8,10 @@ import Link from "next/link";
 
 export function Services() {
     const services = [
-        { id: "01", slug: "web-development", name: "Web Development", desc: "High-performance websites and robust web applications." },
-        { id: "02", slug: "app-development", name: "App Development", desc: "Native and cross-platform mobile experiences that engage users." },
-        { id: "03", slug: "ios-development", name: "iOS Development", desc: "Custom iOS applications built natively for Apple devices." },
-        { id: "04", slug: "seo-management", name: "SEO Management", desc: "Data-driven strategies to scale your product visibility." },
-        { id: "05", slug: "figma-to-website", name: "Figma to Website", desc: "Pixel-perfect translation of Figma designs to live code." },
-        { id: "06", slug: "brand-management", name: "Brand Management", desc: "Comprehensive brand systems that communicate your core values." },
-        { id: "07", slug: "design-implementation", name: "Design Implementation", desc: "Strict adherence to design guidelines in frontend development." },
-        { id: "08", slug: "e-commerce-website-development", name: "E-Commerce Website Development", desc: "Scalable online stores engineered for high conversion rates." },
-        { id: "09", slug: "debugging", name: "Debugging", desc: "In-depth code analysis and resolution to ensure optimal performance." },
-        { id: "10", slug: "website-management", name: "Website Management", desc: "Ongoing maintenance, updates, and monitoring of digital assets." },
-        { id: "11", slug: "full-stack-developer", name: "Full Stack Developer", desc: "End-to-end development handling both server-side and client-side logic." },
+        { id: "01", slug: "digital-platforms", name: "Digital Platforms (Web & App Development)", desc: "End-to-end web and mobile application development using modern frameworks." },
+        { id: "02", slug: "experience-interface-design", name: "Experience & Interface Design (UI/UX)", desc: "Research-driven design that transforms ideas into intuitive, beautiful interfaces." },
+        { id: "03", slug: "growth-visibility-engineering", name: "Growth & Visibility Engineering", desc: "Data-driven strategies to amplify your digital presence and drive organic growth." },
+        { id: "04", slug: "ai-visibility-optimization", name: "AI Visibility Optimization (AIVO)", desc: "Future-proof your brand for the AI era with optimized visibility across AI search." },
     ];
 
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);

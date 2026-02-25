@@ -8,17 +8,10 @@ import { Loader2, ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 const servicesList = [
-    "Web Development",
-    "App Development",
-    "iOS Development",
-    "SEO Management",
-    "Figma to Website",
-    "Brand Management",
-    "Design Implementation",
-    "E-Commerce Website Development",
-    "Debugging",
-    "Website Management",
-    "Full Stack Developer",
+    "Digital Platforms (Web & App Development)",
+    "Experience & Interface Design (UI/UX)",
+    "Growth & Visibility Engineering",
+    "AI Visibility Optimization (AIVO)",
     "Other"
 ];
 
@@ -60,7 +53,7 @@ export default function ContactPage() {
         const data = Object.fromEntries(formData.entries());
 
         try {
-            const res = await fetch('http://localhost:5000/api/contact', {
+            const res = await fetch('/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),

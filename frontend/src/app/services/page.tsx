@@ -10,92 +10,36 @@ import Link from "next/link";
 const services = [
     {
         id: "01",
-        slug: "web-development",
-        title: "Web Development",
-        description: "High-performance websites and web applications built with modern frameworks. We prioritize speed, accessibility, and flawless execution for ambitious brands.",
-        tags: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+        slug: "digital-platforms",
+        title: "Digital Platforms (Web & App Development)",
+        description: "End-to-end web and mobile application development using modern frameworks. We engineer high-performance digital platforms built for scale, speed, and seamless user experiences.",
+        tags: ["React", "Next.js", "React Native", "TypeScript"],
         color: "#B6E87A"
     },
     {
         id: "02",
-        slug: "app-development",
-        title: "App Development",
-        description: "Cross-platform mobile applications that offer native-like performance and exceptional user experiences.",
-        tags: ["React Native", "Flutter", "Mobile UI", "API Integration"],
+        slug: "experience-interface-design",
+        title: "Experience & Interface Design (UI/UX)",
+        description: "Research-driven design that transforms complex ideas into intuitive, beautiful interfaces. Every pixel is purposeful, every interaction is intentional.",
+        tags: ["UI Design", "UX Research", "Prototyping", "Design Systems"],
         color: "#F472B6"
     },
     {
         id: "03",
-        slug: "ios-development",
-        title: "iOS Development",
-        description: "Custom, native iOS applications designed specifically for the Apple ecosystem to guarantee premium performance.",
-        tags: ["Swift", "Objective-C", "iOS UI/UX", "App Store"],
+        slug: "growth-visibility-engineering",
+        title: "Growth & Visibility Engineering",
+        description: "Data-driven strategies to amplify your digital presence. We combine technical SEO, content strategy, and performance marketing to drive sustainable organic growth.",
+        tags: ["Technical SEO", "Content Strategy", "Analytics", "Performance Marketing"],
         color: "#3B82F6"
     },
     {
         id: "04",
-        slug: "seo-management",
-        title: "SEO Management",
-        description: "Data-driven strategies to increase your visibility and drive organic traffic. We focus on sustainable, long-term engineering for search engines.",
-        tags: ["Technical SEO", "Keyword Strategy", "Analytics", "Optimization"],
+        slug: "ai-visibility-optimization",
+        title: "AI Visibility Optimization (AIVO)",
+        description: "Future-proof your brand for the AI era. We optimize your digital presence to ensure maximum visibility across AI-powered search engines, chatbots, and recommendation systems.",
+        tags: ["AI Search", "LLM Optimization", "Schema Markup", "Semantic SEO"],
         color: "#FACC15"
     },
-    {
-        id: "05",
-        slug: "figma-to-website",
-        title: "Figma to Website",
-        description: "Pixel-perfect translation from Figma design files to fully functional, responsive, and animated websites.",
-        tags: ["Frontend", "CSS Animations", "Responsive Design", "Webflow"],
-        color: "#A855F7"
-    },
-    {
-        id: "06",
-        slug: "brand-management",
-        title: "Brand Management",
-        description: "Comprehensive brand systems that communicate your core values and establish a visual language that speaks volumes.",
-        tags: ["Identity", "Strategy", "Positioning", "Guidelines"],
-        color: "#EF4444"
-    },
-    {
-        id: "07",
-        slug: "design-implementation",
-        title: "Design Implementation",
-        description: "Bridging the gap between design and engineering to ensure that every visual detail is accurately brought to life.",
-        tags: ["UI Engineering", "Design Systems", "Component Libraries", "Storybook"],
-        color: "#10B981"
-    },
-    {
-        id: "08",
-        slug: "e-commerce-website-development",
-        title: "E-Commerce Website Development",
-        description: "Scalable, secure, and highly optimized online storefronts designed to maximize conversion rates and revenue.",
-        tags: ["Shopify", "Stripe", "WooCommerce", "Headless Commerce"],
-        color: "#F97316"
-    },
-    {
-        id: "09",
-        slug: "debugging",
-        title: "Debugging",
-        description: "Advanced code auditing, troubleshooting, and bug fixing to ensure the reliability and stability of your applications.",
-        tags: ["Testing", "QA", "Performance Profiling", "Code Review"],
-        color: "#6366F1"
-    },
-    {
-        id: "10",
-        slug: "website-management",
-        title: "Website Management",
-        description: "Continuous monitoring, updates, and optimization services to keep your digital assets secure, fast, and relevant.",
-        tags: ["Maintenance", "Security", "Uptime", "Updates"],
-        color: "#14B8A6"
-    },
-    {
-        id: "11",
-        slug: "full-stack-developer",
-        title: "Full Stack Developer",
-        description: "End-to-end development combining robust backend architectures with dynamic, interactive frontend interfaces.",
-        tags: ["Node.js", "Databases", "APIs", "Cloud Architecture"],
-        color: "#EC4899"
-    }
 ];
 
 export default function ServicesPage() {
