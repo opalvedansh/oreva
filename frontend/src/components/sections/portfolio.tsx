@@ -12,7 +12,7 @@ export function Portfolio() {
             widthClass: "col-span-12",
             image: "/eraya-wellness.webp",
             bgClass: "bg-black",
-            description: "Discover wellness in the Himalayas. A complete destination platform for spiritual mapping and retreat bookings.",
+            description: "Discover wellness in the Himalayas. A destination platform for spiritual mapping.",
             link: "https://erayawellness.com",
         },
         {
@@ -20,16 +20,16 @@ export function Portfolio() {
             category: "E-Commerce",
             widthClass: "col-span-12 md:col-span-7",
             image: "/doree-clothing-v2.png",
-            link: "https://doreeclothing.com", // Adjust if needed
-            bgClass: "bg-[#1A0B12]", // Dark burgundy
-            description: "A premium headless e-commerce experience for a fast-growing fashion brand."
+            link: "https://doreeclothing.com",
+            bgClass: "bg-[#1A0B12]",
+            description: "Headless e-commerce experience for a fast-growing fashion brand."
         },
         {
             title: "Zep wash",
             category: "Service",
             widthClass: "col-span-12 md:col-span-5",
             image: "/images/projects/zep-wash.png",
-            bgClass: "bg-[#0B0F1A]", // Deep indigo
+            bgClass: "bg-[#0B0F1A]",
             description: "Premium vehicle wash and detailing service."
         },
         {
@@ -37,39 +37,39 @@ export function Portfolio() {
             category: "Fashion",
             widthClass: "col-span-12",
             image: "/images/projects/marcella.png",
-            bgClass: "bg-[#111111]", // Near black
+            bgClass: "bg-[#111111]",
             description: "High-end fashion brand e-commerce experience."
         },
     ];
 
     return (
-        <section className="bg-[#F5F4EE] pt-12 pb-32">
+        <section className="bg-[#F5F4EE] pt-12 pb-24 md:pb-32">
 
-            {/* SVG Noise Filter Definition */}
+            {/* SVG Noise Filter */}
             <svg className="hidden">
                 <filter id="noiseFilter">
                     <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
                 </filter>
             </svg>
 
-            <div className="max-w-[100vw] px-6 md:px-12 w-full mx-auto">
+            <div className="max-w-[100vw] px-4 md:px-12 w-full mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8 }}
-                    className="mb-16 md:mb-24 flex flex-col items-start"
+                    className="mb-12 md:mb-24 flex flex-col items-start px-2 md:px-0"
                 >
-                    <span className="text-black/40 font-medium tracking-widest uppercase text-xs block mb-6">
+                    <span className="text-black/40 font-medium tracking-widest uppercase text-[10px] md:text-xs block mb-4 md:mb-6">
                         Selected Work
                     </span>
-                    <h2 className="text-5xl md:text-7xl font-normal tracking-tight text-[#0D0D0D]">
-                        <span className="font-serif italic text-black/30 mr-4">Featured</span>Projects
+                    <h2 className="text-4xl md:text-7xl font-normal tracking-tight text-[#0D0D0D]">
+                        <span className="font-serif italic text-black/30 mr-2 md:mr-4 block md:inline">Featured</span>Projects
                     </h2>
                 </motion.div>
 
                 {/* Broken Grid Layout */}
-                <div className="grid grid-cols-12 gap-6 md:gap-8">
+                <div className="grid grid-cols-12 gap-4 md:gap-8">
                     {projects.map((project, i) => (
                         <motion.div
                             key={i}
@@ -78,12 +78,12 @@ export function Portfolio() {
                             viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
                             className={cn(
-                                "group relative overflow-hidden flex flex-col p-8 md:p-12 min-h-[500px] md:min-h-[600px] cursor-pointer",
+                                "group relative overflow-hidden flex flex-col min-h-[450px] md:min-h-[600px] cursor-pointer rounded-3xl md:rounded-[2rem]",
                                 project.widthClass,
                                 project.bgClass
                             )}
                         >
-                            {/* Clickable Overlay for Link */}
+                            {/* Clickable Overlay */}
                             {project.link && (
                                 <a
                                     href={project.link}
@@ -94,7 +94,7 @@ export function Portfolio() {
                                 />
                             )}
 
-                            {/* Background Image (If present) */}
+                            {/* Background Image */}
                             {project.image && (
                                 <>
                                     <img
@@ -102,40 +102,38 @@ export function Portfolio() {
                                         alt={project.title}
                                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 z-0"
                                     />
-                                    {/* Dark overlay for text readability */}
-                                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-500 z-0"></div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 transition-colors duration-500 z-0"></div>
                                 </>
                             )}
 
                             {/* SVG Noise Texture Overlay */}
                             <div className="absolute inset-0 opacity-[0.15] mix-blend-overlay pointer-events-none z-10" style={{ filter: "url(#noiseFilter)" }}></div>
 
-                            {/* Content */}
-                            <div className="relative z-20 mt-auto flex flex-col justify-end h-full pointer-events-none">
-
-                                {/* Animated Category Pill */}
-                                <div className="mb-4 transform transition-all duration-700 ease-[0.16,1,0.3,1] translate-y-4 group-hover:-translate-y-2 opacity-80 group-hover:opacity-100">
-                                    <span className="inline-block px-4 py-2 bg-[#AADD44] text-[#0D0D0D] text-xs font-bold uppercase tracking-wider">
-                                        {project.category}
-                                    </span>
+                            {/* Unified Header (Always visible at top of card) */}
+                            <div className="relative z-20 flex justify-between items-start p-6 md:p-10 w-full transition-transform duration-700 ease-out group-hover:-translate-y-1">
+                                <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wider">
+                                    {project.category}
+                                </span>
+                                <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white transition-colors duration-300 group-hover:bg-white group-hover:text-black">
+                                    <ArrowRight className="w-4 h-4 md:w-6 md:h-6 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
                                 </div>
+                            </div>
 
-                                {/* Animated Title & Description Container */}
+
+                            {/* Content Block (Bottom) */}
+                            <div className="relative z-20 mt-auto flex flex-col justify-end h-full pointer-events-none p-6 md:p-10 transition-transform duration-700 ease-out group-hover:translate-y-[-10px]">
+
+                                {/* Title & Description */}
                                 <div className="relative pt-2">
-                                    <div className="transform transition-all duration-700 ease-[0.16,1,0.3,1] translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                                        <h3 className="text-4xl md:text-6xl font-black text-white mb-4 tracking-tighter leading-none">
+                                    {/* Default State (Always visible, stacked) */}
+                                    <div className="flex flex-col gap-2 md:gap-4">
+                                        <h3 className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-[0.9]">
                                             {project.title}
                                         </h3>
-
-                                        <p className="text-gray-300 text-lg md:text-xl font-medium max-w-lg leading-relaxed">
+                                        <p className="text-gray-300 text-sm md:text-lg lg:text-xl font-medium leading-relaxed max-w-[90%] md:max-w-2xl">
                                             {project.description}
                                         </p>
                                     </div>
-
-                                    {/* Default state title (visible when not hovered, pushed up on hover) */}
-                                    <h3 className="absolute top-2 left-0 w-full text-4xl md:text-6xl font-black text-white mb-4 tracking-tighter leading-none transform transition-all duration-700 ease-[0.16,1,0.3,1] translate-y-0 opacity-100 group-hover:-translate-y-8 group-hover:opacity-0 pointer-events-none">
-                                        {project.title}
-                                    </h3>
                                 </div>
                             </div>
                         </motion.div>
@@ -147,14 +145,14 @@ export function Portfolio() {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 1, delay: 0.5 }}
-                    className="mt-16 md:mt-24"
+                    className="mt-12 md:mt-24 px-2 md:px-0"
                 >
-                    <a href="/portfolio" className="group flex items-center gap-4 text-sm font-bold tracking-widest uppercase text-[#0D0D0D] w-fit">
+                    <a href="/portfolio" className="group flex items-center justify-between md:justify-start gap-4 text-xs md:text-sm font-bold tracking-widest uppercase text-[#0D0D0D] w-full md:w-fit py-4 border-b border-black/10 md:border-none">
                         <span className="relative">
                             View All Work
-                            <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#AADD44] transition-all duration-500 ease-out group-hover:w-full"></span>
+                            <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#AADD44] transition-all duration-500 ease-out group-hover:w-full hidden md:block"></span>
                         </span>
-                        <ArrowRight className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2" />
+                        <ArrowRight className="w-5 h-5 transition-transform duration-500 md:group-hover:translate-x-2" />
                     </a>
                 </motion.div>
 

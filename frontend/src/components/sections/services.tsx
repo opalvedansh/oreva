@@ -2,35 +2,69 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { AnimatePresence } from "framer-motion";
 
 export function Services() {
+    const sectionRef = useRef<HTMLElement>(null);
     const services = [
-        { id: "01", slug: "digital-platforms", name: "Digital Platforms (Web & App Development)", desc: "End-to-end web and mobile application development using modern frameworks." },
-        { id: "02", slug: "experience-interface-design", name: "Experience & Interface Design (UI/UX)", desc: "Research-driven design that transforms ideas into intuitive, beautiful interfaces." },
-        { id: "03", slug: "growth-visibility-engineering", name: "Growth & Visibility Engineering", desc: "Data-driven strategies to amplify your digital presence and drive organic growth." },
-        { id: "04", slug: "ai-visibility-optimization", name: "AI Visibility Optimization (AIVO)", desc: "Future-proof your brand for the AI era with optimized visibility across AI search." },
+        {
+            id: "01",
+            slug: "digital-platforms",
+            name: "Digital Platforms (Web & App Development)",
+            desc: "End-to-end web and mobile application development using modern frameworks.",
+            bgCard: "bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D]",
+            textColor: "text-white",
+            desktopImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
+        },
+        {
+            id: "02",
+            slug: "experience-interface-design",
+            name: "Experience & Interface Design (UI/UX)",
+            desc: "Research-driven design that transforms ideas into intuitive, beautiful interfaces.",
+            bgCard: "bg-gradient-to-br from-[#0B0F19] to-[#050810]",
+            textColor: "text-white",
+            desktopImage: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2000&auto=format&fit=crop"
+        },
+        {
+            id: "03",
+            slug: "growth-visibility-engineering",
+            name: "Growth & Visibility Engineering",
+            desc: "Data-driven strategies to amplify your digital presence and drive organic growth.",
+            bgCard: "bg-gradient-to-br from-[#121A0F] to-[#080D06]",
+            textColor: "text-[#E5F4D3]",
+            desktopImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+        },
+        {
+            id: "04",
+            slug: "ai-visibility-optimization",
+            name: "AI Visibility Optimization (AIVO)",
+            desc: "Future-proof your brand for the AI era with optimized visibility across AI search.",
+            bgCard: "bg-gradient-to-br from-[#1A0B12] to-[#0D0509]",
+            textColor: "text-[#F8E7EF]",
+            desktopImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop"
+        },
     ];
 
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     return (
-        <section className="bg-[#F5F4EE] py-32 text-[#0D0D0D] border-b border-black/10">
+        <section ref={sectionRef} className="bg-[#F5F4EE] py-24 md:py-32 text-[#0D0D0D] border-b border-black/10 relative transition-colors duration-1000">
             <div className="max-w-7xl mx-auto px-6 w-full">
 
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-12">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 gap-8 md:gap-12">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8 }}
                     >
-                        <span className="text-black/40 font-medium tracking-widest uppercase text-xs block mb-6">
+                        <span className="text-black/40 font-medium tracking-widest uppercase text-xs block mb-4 md:mb-6">
                             Capabilities
                         </span>
-                        <h2 className="text-5xl md:text-7xl font-normal tracking-tight">
+                        <h2 className="text-4xl md:text-7xl font-normal tracking-tight">
                             What we do.
                         </h2>
                     </motion.div>
@@ -40,64 +74,76 @@ export function Services() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="max-w-md text-black/50 text-lg md:text-xl font-light"
+                        className="max-w-md text-black/50 text-base md:text-xl font-light leading-relaxed"
                     >
                         We combine strategic thinking with engineering excellence to build digital products that leave a lasting impression.
                     </motion.div>
                 </div>
 
-                <div className="border-t border-black/10">
-                    {services.map((service, i) => {
-                        const isHovered = hoveredIndex === i;
-
-                        return (
-                            <Link href={`/services/${service.slug}`} key={service.id} className="block w-full">
+                {/* UNIFIED VIEW - Sticky Cards for Desktop & Mobile */}
+                <div className="w-full pb-12 md:pb-24">
+                    {services.map((service, i) => (
+                        <div
+                            key={service.id}
+                            className="sticky w-full max-w-5xl mx-auto mb-4 md:mb-8"
+                            style={{
+                                top: `calc(10vh + ${i * 20}px)`,
+                                zIndex: i * 10
+                            }}
+                        >
+                            <Link href={`/services/${service.slug}`}>
                                 <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
+                                    initial={{ opacity: 0, y: 50 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, margin: "-50px" }}
-                                    transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-                                    onMouseEnter={() => setHoveredIndex(i)}
-                                    onMouseLeave={() => setHoveredIndex(null)}
-                                    className="group flex flex-col md:flex-row items-start md:items-center justify-between py-12 border-b border-black/10 cursor-pointer transition-colors duration-500"
+                                    transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                                    className={cn(
+                                        "w-full rounded-3xl md:rounded-[2.5rem] p-8 md:p-12 lg:p-16 flex flex-col justify-between min-h-[400px] md:min-h-[500px] shadow-2xl relative overflow-hidden group",
+                                        service.bgCard
+                                    )}
                                 >
-                                    <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-16 w-full md:w-1/2">
+                                    {/* Glass reflection effect */}
+                                    <div className="absolute inset-x-0 top-0 h-px bg-white/20"></div>
+                                    <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                                    {/* Top Area */}
+                                    <div className="flex justify-between items-start z-10">
                                         <span className={cn(
-                                            "font-serif italic text-xl transition-colors duration-500 ease-out",
-                                            isHovered ? "text-[#AADD44]" : "text-black/30"
+                                            "font-serif italic text-2xl md:text-3xl font-light",
+                                            service.textColor === "text-white" ? "text-white/40" : service.textColor
                                         )}>
                                             {service.id}
                                         </span>
+                                        <div className={cn(
+                                            "flex items-center justify-center w-10 h-10 md:w-14 md:h-14 rounded-full border border-white/20 backdrop-blur-sm group-hover:bg-white group-hover:text-black transition-all",
+                                            service.textColor
+                                        )}>
+                                            <ArrowRight className="w-5 h-5 md:w-6 md:h-6 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+                                        </div>
+                                    </div>
+
+                                    {/* Bottom Area */}
+                                    <div className="mt-auto space-y-4 md:space-y-6 z-10 pt-16 md:pt-24 w-full md:w-3/4">
                                         <h3 className={cn(
-                                            "text-4xl md:text-5xl lg:text-6xl font-light tracking-tight transition-all duration-500 ease-out",
-                                            isHovered ? "text-[#0D0D0D] translate-x-4" : "text-black/40"
+                                            "text-4xl md:text-6xl font-light tracking-tight leading-[1.1]",
+                                            service.textColor
                                         )}>
                                             {service.name}
                                         </h3>
-                                    </div>
-
-                                    <div className="mt-8 md:mt-0 flex flex-row items-center justify-between w-full md:w-1/2 md:pl-12">
                                         <p className={cn(
-                                            "text-sm md:text-base transition-colors duration-500 max-w-sm font-light leading-relaxed",
-                                            isHovered ? "text-black/70" : "text-black/40"
+                                            "text-sm md:text-lg font-light leading-relaxed opacity-70",
+                                            service.textColor
                                         )}>
                                             {service.desc}
                                         </p>
-
-                                        <div
-                                            className={cn(
-                                                "transition-all duration-500 ease-out transform",
-                                                isHovered ? "text-[#000000] bg-[#AADD44] translate-x-0 scale-100" : "text-black/20 bg-transparent -translate-x-4 scale-90",
-                                                "p-3 rounded-full flex items-center justify-center shrink-0"
-                                            )}
-                                        >
-                                            <ArrowRight className="w-5 h-5 md:w-6 md:h-6" strokeWidth={1.5} />
-                                        </div>
                                     </div>
+
+                                    {/* Ambient Glows */}
+                                    <div className="absolute -bottom-24 -right-24 w-64 h-64 md:w-96 md:h-96 bg-white/5 rounded-full blur-[80px] md:blur-[100px] pointer-events-none transition-transform duration-700 group-hover:scale-150"></div>
                                 </motion.div>
                             </Link>
-                        );
-                    })}
+                        </div>
+                    ))}
                 </div>
 
             </div>
