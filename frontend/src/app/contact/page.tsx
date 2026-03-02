@@ -139,13 +139,32 @@ export default function ContactPage() {
                             >
                                 <div>
                                     <h4 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-2">Direct Email</h4>
-                                    <a href="mailto:hello@oreva.com" className="group inline-flex items-center text-xl font-bold text-gray-900 transition-colors">
+                                    <a href="mailto:oreva3685@gmail.com" className="group inline-flex items-center text-xl font-bold text-gray-900 transition-colors">
                                         <span className="relative overflow-hidden">
-                                            <span className="block group-hover:-translate-y-full transition-transform duration-500 ease-[0.16,1,0.3,1]">hello@oreva.com</span>
-                                            <span className="absolute top-0 left-0 text-[#B6E87A] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1]">hello@oreva.com</span>
+                                            <span className="block group-hover:-translate-y-full transition-transform duration-500 ease-[0.16,1,0.3,1]">oreva3685@gmail.com</span>
+                                            <span className="absolute top-0 left-0 text-[#B6E87A] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1]">oreva3685@gmail.com</span>
                                         </span>
                                         <ArrowRight className="w-5 h-5 ml-3 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-[#B6E87A]" />
                                     </a>
+                                </div>
+                                <div>
+                                    <h4 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-2">Direct Phone</h4>
+                                    <div className="flex flex-col gap-2">
+                                        <a href="tel:+917761865075" className="group inline-flex items-center text-xl font-bold text-gray-900 transition-colors w-fit">
+                                            <span className="relative overflow-hidden">
+                                                <span className="block group-hover:-translate-y-full transition-transform duration-500 ease-[0.16,1,0.3,1]">+91 77618 65075</span>
+                                                <span className="absolute top-0 left-0 text-[#B6E87A] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1]">+91 77618 65075</span>
+                                            </span>
+                                            <ArrowRight className="w-5 h-5 ml-3 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-[#B6E87A]" />
+                                        </a>
+                                        <a href="tel:+917570033209" className="group inline-flex items-center text-xl font-bold text-gray-900 transition-colors w-fit">
+                                            <span className="relative overflow-hidden">
+                                                <span className="block group-hover:-translate-y-full transition-transform duration-500 ease-[0.16,1,0.3,1]">+91 75700 33209</span>
+                                                <span className="absolute top-0 left-0 text-[#B6E87A] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1]">+91 75700 33209</span>
+                                            </span>
+                                            <ArrowRight className="w-5 h-5 ml-3 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-[#B6E87A]" />
+                                        </a>
+                                    </div>
                                 </div>
                                 <div>
                                     <h4 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-2">Response Time</h4>
