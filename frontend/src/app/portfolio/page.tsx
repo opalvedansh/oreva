@@ -23,7 +23,7 @@ const projects = [
         slug: 'doree-clothing',
         title: "Doree Clothing",
         category: "E-Commerce",
-        image: "/doree-clothing-v2.png",
+        video: "/videos/doree-clothing-animation.mp4",
         link: "https://doreeclothing.com", // Adjust if needed
         tags: ["E-Commerce", "Fashion", "Shopify"]
     },
@@ -134,11 +134,23 @@ export default function PortfolioPage() {
                                     >
                                         <div className="relative overflow-hidden mb-8 border-4 border-gray-900 rounded-3xl bg-white shadow-[8px_8px_0px_0px_rgba(17,24,39,1)] group-hover:-translate-y-2 group-hover:shadow-[16px_16px_0px_0px_rgba(17,24,39,1)] group-hover:border-[#B6E87A] transition-all duration-500 z-10 group-hover:z-20">
                                             <div className="aspect-[4/5] md:aspect-[3/4] overflow-hidden relative">
-                                                <img
-                                                    src={project.image}
-                                                    alt={project.title}
-                                                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                                                />
+                                                {/* Image / Video Media */}
+                                                {(project as any).video ? (
+                                                    <video
+                                                        src={(project as any).video}
+                                                        autoPlay
+                                                        loop
+                                                        muted
+                                                        playsInline
+                                                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                                                    />
+                                                ) : (
+                                                    <img
+                                                        src={project.image}
+                                                        alt={project.title}
+                                                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                                                    />
+                                                )}
                                                 <div className="absolute inset-0 bg-gray-900/0 group-hover:bg-gray-900/10 transition-colors duration-500" />
 
                                                 {/* Hover Action Button */}
