@@ -169,7 +169,7 @@ export function Hero() {
                                 ))}
                             </div>
                             <div className="text-sm font-medium text-gray-500 leading-snug text-left">
-                                <span className="block font-black text-gray-900 text-base md:text-lg">100+ happy</span>
+                                <span className="block font-black text-gray-900 text-base md:text-lg">50+ happy</span>
                                 clients
                             </div>
                         </div>

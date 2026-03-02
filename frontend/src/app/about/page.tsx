@@ -147,7 +147,7 @@ export default function AboutPage() {
                 <div className="max-w-[100vw] mx-auto px-6 w-full">
                     <div className="flex flex-col md:flex-row items-center justify-center divide-y md:divide-y-0 md:divide-x divide-black/10 border-y border-black/10 w-full py-16">
                         {[
-                            { label: 'CLIENTS WORLDWIDE', value: '100+' },
+                            { label: 'CLIENTS WORLDWIDE', value: '50+' },
                             { label: 'YEARS EXPERIENCE', value: '3+' },
                             { label: 'PROJECTS SHIPPED', value: '50+' },
                             { label: 'CLIENT RETENTION', value: '98%' },
