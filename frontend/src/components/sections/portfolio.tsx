@@ -19,18 +19,18 @@ export function Portfolio() {
             title: "Doree Clothing",
             category: "E-Commerce",
             widthClass: "col-span-12 md:col-span-7",
-            image: "/doree-clothing-v2.png",
+            video: "/videos/doree-clothing-animation.mp4",
             link: "https://doreeclothing.com",
             bgClass: "bg-[#1A0B12]",
             description: "Headless e-commerce experience for a fast-growing fashion brand."
         },
         {
-            title: "Zep wash",
-            category: "Service",
+            title: "Furnimart",
+            category: "E-Commerce",
             widthClass: "col-span-12 md:col-span-5",
-            image: "/images/projects/zep-wash.png",
+            image: "/images/projects/furnimart.png",
             bgClass: "bg-[#0B0F1A]",
-            description: "Premium vehicle wash and detailing service."
+            description: "Modern e-commerce platform for premium furniture."
         },
         {
             title: "Marcella",
@@ -94,8 +94,20 @@ export function Portfolio() {
                                 />
                             )}
 
-                            {/* Background Image */}
-                            {project.image && (
+                            {/* Background Media */}
+                            {project.video ? (
+                                <>
+                                    <video
+                                        src={project.video}
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 z-0"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 transition-colors duration-500 z-0"></div>
+                                </>
+                            ) : project.image && (
                                 <>
                                     <img
                                         src={project.image}

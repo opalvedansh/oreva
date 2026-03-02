@@ -29,11 +29,11 @@ const projects = [
     },
     {
         id: "03",
-        slug: 'zep-wash',
-        title: "Zep wash",
-        category: "Service",
-        image: "/images/projects/zep-wash.png",
-        tags: ["Service", "Cleaning"]
+        slug: 'furnimart',
+        title: "Furnimart",
+        category: "E-Commerce",
+        image: "/images/projects/furnimart.png",
+        tags: ["E-Commerce", "Furniture"]
     },
     {
         id: "04",
