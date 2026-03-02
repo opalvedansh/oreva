@@ -79,8 +79,6 @@ export function Footer() {
                     {/* Socials */}
                     <div className="flex items-center gap-6 md:gap-6 text-sm font-light text-white/50 order-2 md:order-3 pt-8 border-t border-white/5 md:border-t-0 md:pt-0 w-full md:w-auto">
                         <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
-                        <a href="#" className="hover:text-white transition-colors">Twitter</a>
-                        <a href="#" className="hover:text-white transition-colors">Instagram</a>
                     </div>
                 </div>
 
