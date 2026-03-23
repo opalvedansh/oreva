@@ -71,10 +71,13 @@ export function Navbar() {
                         </Link>
 
                         <button
-                            className="md:hidden p-2 rounded-full hover:bg-gray-100 transition"
+                            className={cn(
+                                "md:hidden p-3 rounded-full transition-colors z-50 relative",
+                                mobileMenuOpen ? "bg-white/10 text-white hover:bg-white/20" : "hover:bg-gray-100 text-black"
+                            )}
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                         >
-                            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>
                     </div>
                 </div>
@@ -84,35 +87,41 @@ export function Navbar() {
             <AnimatePresence>
                 {mobileMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="fixed inset-0 z-40 bg-white pt-24 px-6 md:hidden flex flex-col items-center gap-8"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="fixed inset-0 z-40 bg-[#050505]/95 backdrop-blur-2xl md:hidden flex flex-col justify-center px-8"
                     >
-                        {navLinks.map((link, i) => (
-                            <motion.div
-                                key={link.name}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.1 + i * 0.1 }}
-                            >
-                                <Link
-                                    href={link.href}
-                                    className="text-4xl font-black tracking-tight"
-                                    onClick={() => setMobileMenuOpen(false)}
+                        <div className="flex flex-col gap-8">
+                            {navLinks.map((link, i) => (
+                                <motion.div
+                                    key={link.name}
+                                    initial={{ opacity: 0, y: 40, rotateX: -20 }}
+                                    animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                                    exit={{ opacity: 0, y: 20 }}
+                                    transition={{ duration: 0.6, delay: 0.1 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
                                 >
-                                    {link.name}
-                                </Link>
-                            </motion.div>
-                        ))}
+                                    <Link
+                                        href={link.href}
+                                        className="text-5xl font-black tracking-tighter text-white hover:text-[#B6E87A] transition-colors"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        {link.name}.
+                                    </Link>
+                                </motion.div>
+                            ))}
+                        </div>
+
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4 }}
-                            className="mt-8 w-full max-w-xs"
+                            exit={{ opacity: 0, y: 20 }}
+                            transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                            className="mt-16 w-full"
                         >
                             <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                                <Button className="w-full h-14 text-lg bg-[#B6E87A] text-black hover:bg-[#a5d66f]">
+                                <Button className="w-full h-16 text-xl rounded-full bg-[#B6E87A] text-black hover:bg-white transition-colors duration-500 font-bold shadow-[0_0_40px_rgba(182,232,122,0.2)]">
                                     Start a Project
                                 </Button>
                             </Link>

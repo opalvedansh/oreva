@@ -11,7 +11,7 @@ export function Portfolio() {
             title: "Eraya Wellness",
             category: "Web Development",
             widthClass: "col-span-12",
-            image: "/eraya-wellness.webp",
+            image: "/eraya-wellness.jpg",
             bgClass: "bg-black",
             description: "Discover wellness in the Himalayas. A destination platform for spiritual mapping.",
             link: "https://erayawellness.com",
@@ -29,7 +29,7 @@ export function Portfolio() {
             title: "Furnimart",
             category: "E-Commerce",
             widthClass: "col-span-12 md:col-span-5",
-            image: "/images/projects/furnimart.png",
+            image: "/images/projects/furnimart.jpg",
             bgClass: "bg-[#0B0F1A]",
             description: "Modern e-commerce platform for premium furniture."
         },
@@ -37,7 +37,7 @@ export function Portfolio() {
             title: "Marcella",
             category: "Fashion",
             widthClass: "col-span-12",
-            image: "/images/projects/marcella.png",
+            image: "/images/projects/marcella.jpg",
             bgClass: "bg-[#111111]",
             description: "High-end fashion brand e-commerce experience."
         },
@@ -104,6 +104,7 @@ export function Portfolio() {
                                         loop
                                         muted
                                         playsInline
+                                        preload="none"
                                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 z-0"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 transition-colors duration-500 z-0"></div>

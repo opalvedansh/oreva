@@ -1,10 +1,13 @@
 import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/sections/hero";
-import { SocialProof } from "@/components/sections/social-proof";
-import { Services } from "@/components/sections/services";
-import { Portfolio } from "@/components/sections/portfolio";
-import { Process } from "@/components/sections/process";
+import dynamic from "next/dynamic";
+
+// Lazy load all below-fold sections to reduce initial JS bundle
+const SocialProof = dynamic(() => import("@/components/sections/social-proof").then(m => ({ default: m.SocialProof })));
+const Services = dynamic(() => import("@/components/sections/services").then(m => ({ default: m.Services })));
+const Portfolio = dynamic(() => import("@/components/sections/portfolio").then(m => ({ default: m.Portfolio })));
+const Process = dynamic(() => import("@/components/sections/process").then(m => ({ default: m.Process })));
+const Footer = dynamic(() => import("@/components/layout/footer").then(m => ({ default: m.Footer })));
 
 
 export default function Home() {
@@ -20,3 +23,4 @@ export default function Home() {
     </main>
   );
 }
+

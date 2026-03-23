@@ -15,7 +15,7 @@ const projects = [
         slug: 'eraya-wellness',
         title: "Eraya Wellness",
         category: "Web Development",
-        image: "/eraya-wellness.png", // Updated to the new PNG file
+        image: "/eraya-wellness.jpg",
         link: "https://erayawellness.com", // External Link
         tags: ["Wellness", "Travel", "Booking"]
     },
@@ -33,7 +33,7 @@ const projects = [
         slug: 'furnimart',
         title: "Furnimart",
         category: "E-Commerce",
-        image: "/images/projects/furnimart.png",
+        image: "/images/projects/furnimart.jpg",
         tags: ["E-Commerce", "Furniture"]
     },
     {
@@ -41,7 +41,7 @@ const projects = [
         slug: 'marcella',
         title: "Marcella",
         category: "Fashion",
-        image: "/images/projects/marcella.png",
+        image: "/images/projects/marcella.jpg",
         tags: ["E-Commerce", "Fashion"]
     },
 ];
@@ -143,6 +143,7 @@ export default function PortfolioPage() {
                                                         loop
                                                         muted
                                                         playsInline
+                                                        preload="none"
                                                         className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                                                     />
                                                 ) : (
