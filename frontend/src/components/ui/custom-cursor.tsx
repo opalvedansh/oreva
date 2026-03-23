@@ -6,15 +6,38 @@ import { motion } from "framer-motion";
 export function CustomCursor() {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [isHovering, setIsHovering] = useState(false);
+    const [isDesktop, setIsDesktop] = useState(false);
 
     useEffect(() => {
+        // Only activate custom cursor on devices that have a fine pointer (mouse/trackpad)
+        const mediaQuery = window.matchMedia("(pointer: fine)");
+        setIsDesktop(mediaQuery.matches);
+
+        const handlePointerChange = (e: MediaQueryListEvent) => {
+            setIsDesktop(e.matches);
+        };
+
+        mediaQuery.addEventListener("change", handlePointerChange);
+
+        if (mediaQuery.matches) {
+            document.body.style.cursor = "none";
+        }
+
+        return () => {
+            mediaQuery.removeEventListener("change", handlePointerChange);
+            document.body.style.cursor = "";
+        };
+    }, []);
+
+    useEffect(() => {
+        if (!isDesktop) return;
+
         const updateMousePosition = (e: MouseEvent) => {
             setMousePosition({ x: e.clientX, y: e.clientY });
         };
 
         const handleMouseOver = (e: MouseEvent) => {
             const target = e.target as HTMLElement;
-            // Check if hovering over a link, button, or clickable element
             if (
                 target.tagName === "A" ||
                 target.tagName === "BUTTON" ||
@@ -36,7 +59,10 @@ export function CustomCursor() {
             window.removeEventListener("mousemove", updateMousePosition);
             window.removeEventListener("mouseover", handleMouseOver);
         };
-    }, []);
+    }, [isDesktop]);
+
+    // Don't render on touch/mobile devices
+    if (!isDesktop) return null;
 
     return (
         <motion.div

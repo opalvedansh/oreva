@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${cormorantGaramond.variable} antialiased cursor-none`}
+        className={`${inter.variable} ${cormorantGaramond.variable} antialiased`}
       >
         <CustomCursor />
         {children}

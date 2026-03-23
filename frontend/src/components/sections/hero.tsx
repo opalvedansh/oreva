@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useRef, useState } from "react";
+import Image from "next/image";
 
 function CherryIcon({ className }: { className?: string }) {
     return (
@@ -164,7 +165,13 @@ export function Hero() {
                                         transition={{ duration: 0.5, delay: 0.6 + (i * 0.1) }}
                                         className="w-12 h-12 md:w-14 md:h-14 rounded-full border-4 border-[#FEFCF8] bg-gray-200 overflow-hidden relative shadow-md"
                                     >
-                                        <img src={`https://i.pravatar.cc/100?img=${i + 20}`} alt="Student" className="w-full h-full object-cover" />
+                                        <Image
+                                            src={`https://i.pravatar.cc/100?img=${i + 20}`}
+                                            alt="Happy client"
+                                            width={56}
+                                            height={56}
+                                            className="w-full h-full object-cover"
+                                        />
                                     </motion.div>
                                 ))}
                             </div>

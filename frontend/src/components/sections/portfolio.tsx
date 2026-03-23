@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export function Portfolio() {
     const projects = [
@@ -109,10 +110,12 @@ export function Portfolio() {
                                 </>
                             ) : project.image && (
                                 <>
-                                    <img
+                                    <Image
                                         src={project.image}
                                         alt={project.title}
-                                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 z-0"
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                        className="object-cover transition-transform duration-1000 group-hover:scale-105 z-0"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 transition-colors duration-500 z-0"></div>
                                 </>
