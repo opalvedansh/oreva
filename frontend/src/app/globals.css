@@ -34,3 +34,11 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
 }
+
+/* Accessibility: Global Focus Styles */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+  border-radius: 4px;
+  transition: outline-offset 0.2s ease;
+}

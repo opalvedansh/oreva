@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { useRef, useState } from "react";
 import Image from "next/image";
 
 function CherryIcon({ className }: { className?: string }) {

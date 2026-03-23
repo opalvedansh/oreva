@@ -2,56 +2,14 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { useState, useRef } from "react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { AnimatePresence } from "framer-motion";
+import { services } from "@/lib/data/services";
 
 export function Services() {
-    const sectionRef = useRef<HTMLElement>(null);
-    const services = [
-        {
-            id: "01",
-            slug: "digital-platforms",
-            name: "Digital Platforms (Web & App Development)",
-            desc: "End-to-end web and mobile application development using modern frameworks.",
-            bgCard: "bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D]",
-            textColor: "text-white",
-            desktopImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
-        },
-        {
-            id: "02",
-            slug: "experience-interface-design",
-            name: "Experience & Interface Design (UI/UX)",
-            desc: "Research-driven design that transforms ideas into intuitive, beautiful interfaces.",
-            bgCard: "bg-gradient-to-br from-[#0B0F19] to-[#050810]",
-            textColor: "text-white",
-            desktopImage: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2000&auto=format&fit=crop"
-        },
-        {
-            id: "03",
-            slug: "growth-visibility-engineering",
-            name: "Growth & Visibility Engineering",
-            desc: "Data-driven strategies to amplify your digital presence and drive organic growth.",
-            bgCard: "bg-gradient-to-br from-[#121A0F] to-[#080D06]",
-            textColor: "text-[#E5F4D3]",
-            desktopImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
-        },
-        {
-            id: "04",
-            slug: "ai-visibility-optimization",
-            name: "AI Visibility Optimization (AIVO)",
-            desc: "Future-proof your brand for the AI era with optimized visibility across AI search.",
-            bgCard: "bg-gradient-to-br from-[#1A0B12] to-[#0D0509]",
-            textColor: "text-[#F8E7EF]",
-            desktopImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop"
-        },
-    ];
-
-    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
     return (
-        <section ref={sectionRef} className="bg-[#F5F4EE] py-24 md:py-32 text-[#0D0D0D] border-b border-black/10 relative transition-colors duration-1000">
+        <section className="bg-[#F5F4EE] py-24 md:py-32 text-[#0D0D0D] border-b border-black/10 relative transition-colors duration-1000">
             <div className="max-w-7xl mx-auto px-6 w-full">
 
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 gap-8 md:gap-12">

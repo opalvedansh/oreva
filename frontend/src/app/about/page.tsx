@@ -4,6 +4,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { motion, useScroll } from "framer-motion";
 import { useRef } from "react";
+import { stats } from "@/lib/data/stats";
 
 export default function AboutPage() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -146,12 +147,7 @@ export default function AboutPage() {
             <section className="bg-[#F5F4EE] py-24 sm:py-32">
                 <div className="max-w-[100vw] mx-auto px-6 w-full">
                     <div className="flex flex-col md:flex-row items-center justify-center divide-y md:divide-y-0 md:divide-x divide-black/10 border-y border-black/10 w-full py-16">
-                        {[
-                            { label: 'CLIENTS WORLDWIDE', value: '50+' },
-                            { label: 'YEARS EXPERIENCE', value: '3+' },
-                            { label: 'PROJECTS SHIPPED', value: '50+' },
-                            { label: 'CLIENT RETENTION', value: '98%' },
-                        ].map((stat, i) => (
+                        {stats.map((stat, i) => (
                             <motion.div
                                 key={stat.label}
                                 initial={{ opacity: 0, y: 20 }}

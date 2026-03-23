@@ -63,30 +63,27 @@ export function Footer() {
                         </span>
                     </div>
 
-                    {/* Nav Links */}
-                    <nav className="grid grid-cols-2 md:flex md:flex-wrap items-center gap-x-8 gap-y-4 md:gap-10 text-xs md:text-sm font-bold md:font-light tracking-widest uppercase md:normal-case md:tracking-normal text-white/50 order-1 md:order-2 w-full md:w-auto">
+                    {/* Nav & Social Links */}
+                    <nav aria-label="Footer Navigation" className="grid grid-cols-2 md:grid-cols-3 lg:flex lg:flex-wrap items-center gap-x-8 gap-y-4 md:gap-10 text-xs md:text-sm font-bold md:font-light tracking-widest uppercase md:normal-case md:tracking-normal text-white/50 order-1 md:order-2 w-full md:w-auto pb-8 md:pb-0 border-b border-white/5 md:border-b-0">
                         {[
                             { name: 'Services', href: '/services' },
-                            { name: 'Work', href: '/#work' },
+                            { name: 'Work', href: '/portfolio' },
                             { name: 'Process', href: '/#process' },
+                            { name: 'About', href: '/about' },
+                            { name: 'Contact', href: '/contact' },
+                            { name: 'LinkedIn', href: 'https://www.linkedin.com/company/or%C3%A9va/?viewAsMember=true', external: true },
                         ].map((item) => (
-                            <Link key={item.name} href={item.href} className="hover:text-white transition-colors duration-300">
+                            <Link
+                                key={item.name}
+                                href={item.href}
+                                target={item.external ? "_blank" : undefined}
+                                rel={item.external ? "noopener noreferrer" : undefined}
+                                className="hover:text-white transition-colors duration-300"
+                            >
                                 {item.name}
                             </Link>
                         ))}
                     </nav>
-
-                    {/* Socials */}
-                    <div className="flex items-center gap-6 md:gap-6 text-sm font-light text-white/50 order-2 md:order-3 pt-8 border-t border-white/5 md:border-t-0 md:pt-0 w-full md:w-auto">
-                        <a
-                            href="https://www.linkedin.com/company/or%C3%A9va/?viewAsMember=true"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="hover:text-white transition-colors"
-                        >
-                            LinkedIn
-                        </a>
-                    </div>
                 </div>
 
             </div>

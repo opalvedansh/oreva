@@ -19,6 +19,17 @@ export function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    useEffect(() => {
+        if (mobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, [mobileMenuOpen]);
+
     const navLinks = [
         { name: 'Services', href: '/services' },
         { name: 'Work', href: '/portfolio' },
@@ -50,7 +61,7 @@ export function Navbar() {
                     </Link>
 
                     {/* Desktop Nav */}
-                    <nav className="hidden md:flex items-center gap-1">
+                    <nav aria-label="Main Navigation" className="hidden md:flex items-center gap-1">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
@@ -94,23 +105,25 @@ export function Navbar() {
                         className="fixed inset-0 z-40 bg-[#050505]/95 backdrop-blur-2xl md:hidden flex flex-col justify-center px-8"
                     >
                         <div className="flex flex-col gap-8">
-                            {navLinks.map((link, i) => (
-                                <motion.div
-                                    key={link.name}
-                                    initial={{ opacity: 0, y: 40, rotateX: -20 }}
-                                    animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                                    exit={{ opacity: 0, y: 20 }}
-                                    transition={{ duration: 0.6, delay: 0.1 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                                >
-                                    <Link
-                                        href={link.href}
-                                        className="text-5xl font-black tracking-tighter text-white hover:text-[#B6E87A] transition-colors"
-                                        onClick={() => setMobileMenuOpen(false)}
+                            <nav aria-label="Mobile Navigation" className="contents">
+                                {navLinks.map((link, i) => (
+                                    <motion.div
+                                        key={link.name}
+                                        initial={{ opacity: 0, y: 40, rotateX: -20 }}
+                                        animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                                        exit={{ opacity: 0, y: 20 }}
+                                        transition={{ duration: 0.6, delay: 0.1 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
                                     >
-                                        {link.name}.
-                                    </Link>
-                                </motion.div>
-                            ))}
+                                        <Link
+                                            href={link.href}
+                                            className="text-5xl font-black tracking-tighter text-white hover:text-[#B6E87A] transition-colors inline-block"
+                                            onClick={() => setMobileMenuOpen(false)}
+                                        >
+                                            {link.name}.
+                                        </Link>
+                                    </motion.div>
+                                ))}
+                            </nav>
                         </div>
 
                         <motion.div

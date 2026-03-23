@@ -29,6 +29,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${cormorantGaramond.variable} antialiased`}
       >
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:p-4 focus:bg-[#B6E87A] focus:text-black font-bold focus:top-0 focus:left-0">
+          Skip to content
+        </a>
         <CustomCursor />
         {children}
       </body>

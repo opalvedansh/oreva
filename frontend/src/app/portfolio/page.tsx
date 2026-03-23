@@ -8,43 +8,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-
-const projects = [
-    {
-        id: "01",
-        slug: 'eraya-wellness',
-        title: "Eraya Wellness",
-        category: "Web Development",
-        image: "/eraya-wellness.jpg",
-        link: "https://erayawellness.com", // External Link
-        tags: ["Wellness", "Travel", "Booking"]
-    },
-    {
-        id: "02",
-        slug: 'doree-clothing',
-        title: "Doree Clothing",
-        category: "E-Commerce",
-        video: "/videos/doree-clothing-animation.mp4",
-        link: "https://doreeclothing.com", // Adjust if needed
-        tags: ["E-Commerce", "Fashion", "Shopify"]
-    },
-    {
-        id: "03",
-        slug: 'furnimart',
-        title: "Furnimart",
-        category: "E-Commerce",
-        image: "/images/projects/furnimart.jpg",
-        tags: ["E-Commerce", "Furniture"]
-    },
-    {
-        id: "04",
-        slug: 'marcella',
-        title: "Marcella",
-        category: "Fashion",
-        image: "/images/projects/marcella.jpg",
-        tags: ["E-Commerce", "Fashion"]
-    },
-];
+import { projects } from "@/lib/data/projects";
+import { LazyVideo } from "@/components/ui/lazy-video";
 
 const categories = ["All", "Web Development", "App Design", "Branding"];
 
@@ -137,13 +102,8 @@ export default function PortfolioPage() {
                                             <div className="aspect-[4/5] md:aspect-[3/4] overflow-hidden relative">
                                                 {/* Image / Video Media */}
                                                 {(project as any).video ? (
-                                                    <video
+                                                    <LazyVideo
                                                         src={(project as any).video}
-                                                        autoPlay
-                                                        loop
-                                                        muted
-                                                        playsInline
-                                                        preload="none"
                                                         className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                                                     />
                                                 ) : (

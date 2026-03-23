@@ -6,12 +6,10 @@ import { Footer } from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
 import { Loader2, ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { services } from "@/lib/data/services";
 
 const servicesList = [
-    "Digital Platforms (Web & App Development)",
-    "Experience & Interface Design (UI/UX)",
-    "Growth & Visibility Engineering",
-    "AI Visibility Optimization (AIVO)",
+    ...services.map(s => s.name),
     "Other"
 ];
 

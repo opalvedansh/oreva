@@ -4,47 +4,12 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { projects } from "@/lib/data/projects";
+import { LazyVideo } from "@/components/ui/lazy-video";
 
 export function Portfolio() {
-    const projects = [
-        {
-            title: "Eraya Wellness",
-            category: "Web Development",
-            widthClass: "col-span-12",
-            image: "/eraya-wellness.jpg",
-            bgClass: "bg-black",
-            description: "Discover wellness in the Himalayas. A destination platform for spiritual mapping.",
-            link: "https://erayawellness.com",
-        },
-        {
-            title: "Doree Clothing",
-            category: "E-Commerce",
-            widthClass: "col-span-12 md:col-span-7",
-            video: "/videos/doree-clothing-animation.mp4",
-            link: "https://doreeclothing.com",
-            bgClass: "bg-[#1A0B12]",
-            description: "Headless e-commerce experience for a fast-growing fashion brand."
-        },
-        {
-            title: "Furnimart",
-            category: "E-Commerce",
-            widthClass: "col-span-12 md:col-span-5",
-            image: "/images/projects/furnimart.jpg",
-            bgClass: "bg-[#0B0F1A]",
-            description: "Modern e-commerce platform for premium furniture."
-        },
-        {
-            title: "Marcella",
-            category: "Fashion",
-            widthClass: "col-span-12",
-            image: "/images/projects/marcella.jpg",
-            bgClass: "bg-[#111111]",
-            description: "High-end fashion brand e-commerce experience."
-        },
-    ];
-
     return (
-        <section className="bg-[#F5F4EE] pt-12 pb-24 md:pb-32">
+        <section id="work" className="bg-[#F5F4EE] pt-12 pb-24 md:pb-32">
 
             {/* SVG Noise Filter */}
             <svg className="hidden">
@@ -98,13 +63,8 @@ export function Portfolio() {
                             {/* Background Media */}
                             {project.video ? (
                                 <>
-                                    <video
+                                    <LazyVideo
                                         src={project.video}
-                                        autoPlay
-                                        loop
-                                        muted
-                                        playsInline
-                                        preload="none"
                                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 z-0"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 transition-colors duration-500 z-0"></div>
@@ -147,7 +107,7 @@ export function Portfolio() {
                                             {project.title}
                                         </h3>
                                         <p className="text-gray-300 text-sm md:text-lg lg:text-xl font-medium leading-relaxed max-w-[90%] md:max-w-2xl">
-                                            {project.description}
+                                            {project.descriptionHomepage}
                                         </p>
                                     </div>
                                 </div>
