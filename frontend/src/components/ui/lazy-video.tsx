@@ -3,54 +3,52 @@
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
-interface LazyVideoProps extends React.VideoHTMLAttributes<HTMLVideoElement> {
+interface LazyVideoProps {
     src: string;
+    className?: string;
 }
 
-export function LazyVideo({ src, className, ...props }: LazyVideoProps) {
+export function LazyVideo({ src, className }: LazyVideoProps) {
     const videoRef = useRef<HTMLVideoElement>(null);
-    const [shouldPlay, setShouldPlay] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
+        const el = videoRef.current;
+        if (!el) return;
+
         const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setShouldPlay(true);
-                } else {
-                    setShouldPlay(false);
-                }
-            },
-            { rootMargin: "200px" } // Start loading slightly before it enters the viewport
+            ([entry]) => setIsVisible(entry.isIntersecting),
+            { rootMargin: "200px" }
         );
-
-        if (videoRef.current) {
-            observer.observe(videoRef.current);
-        }
-
-        return () => {
-            if (videoRef.current) observer.unobserve(videoRef.current);
-        };
+        observer.observe(el);
+        return () => observer.unobserve(el);
     }, []);
 
     useEffect(() => {
-        if (!videoRef.current) return;
-        if (shouldPlay) {
-            videoRef.current.play().catch((e) => console.log("Video auto-play prevented:", e));
-        } else {
-            videoRef.current.pause();
-        }
-    }, [shouldPlay]);
+        const el = videoRef.current;
+        if (!el) return;
 
+        if (isVisible) {
+            // Set src imperatively to avoid React rendering src=""
+            if (!el.getAttribute("src")) {
+                el.setAttribute("src", src);
+                el.load();
+            }
+            el.play().catch(() => {});
+        } else {
+            el.pause();
+        }
+    }, [isVisible, src]);
+
+    // No src prop — we set it imperatively to avoid the empty-string warning
     return (
         <video
             ref={videoRef}
-            src={shouldPlay ? src : ""} // Only set src when it should play/buffer
             preload="none"
-            className={cn(className)}
             muted
             loop
             playsInline
-            {...props}
+            className={cn(className)}
         />
     );
 }
